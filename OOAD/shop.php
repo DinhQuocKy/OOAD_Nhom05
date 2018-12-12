@@ -33,7 +33,7 @@
       <![endif]-->
       <script type="text/javascript" src="js/Test.js"></script>
    </head>
-   <body>
+   <body onload="Cart()">
       
       <div class="header-area">
          <div class="container">
@@ -151,6 +151,7 @@
             </div>
          </div>
       </div>
+
       <!-- End mainmenu area -->   
       <div class="product-big-title-area">
          <div class="container">
@@ -163,6 +164,14 @@
             </div>
          </div>
       </div>
+      <div style="text-align: center;font-size: 18px;margin-top: 10px">
+         <b><i>Chi nhánh  </i></b>
+         <select id="dsChiNhanh">
+            <!-- <option value="CN001">Chi Nhánh 1</option>
+            <option value="CN002">Chi Nhánh 2</option>
+            <option value="CN003">Chi Nhánh 3</option> -->
+         </select>
+      </div>
       <div class="single-product-area">
          <div class="zigzag-bottom"></div>
          <div class="container">
@@ -173,7 +182,7 @@
                      <div class="product-pagination text-center">
                         <nav>
                            <ul class="pagination" id="pageBar">
-                              <li>1</li>
+                              <!-- <li>1</li> -->
                            </ul>
                         </nav>
                      </div>
@@ -269,29 +278,102 @@
    </body>
 </html>
 <script>
-
-          function fnLaunch(ma)
-         { 
-            var urls="single-product.php?id="+ma;
-            window.open(urls, "_blank");
-            // window.focus();
-
-       }
-       $(document).ready(function(){
-         var page=<?php echo $_GET['page'] ;?>;
-          $.ajax({
-                url:"content_product.php", 
-                method:"POST",
-                data:{page : page}, 
-                success:function(result){ 
-                    $('#contentProduct').html(result);
-                }
+   var cn;
+   
+     $(document).ready(function(){
+      //load combobox chi nhánh 
+       $.ajax({
+            url:"loadDSCN.php",
+            success:function(result){
+               $('#dsChiNhanh').html(result);
+               cn=$('#dsChiNhanh').val();
+               //html phân trang
+               pagination(cn);
+            }
         });
-          $.ajax({
+
+         //showContent mới load trang
+         $.ajax({
+                   url:"Page.php", 
+                   method:"POST",
+                   data:{idPage : 1,cn:'CN001'}, 
+                   success:function(result){ 
+                       $('#contentProduct').html(result);
+                   }
+           });
+     });
+     $(document).on('click','.page',function(){
+      var idPage=$(this).attr('id');
+      $.ajax({
+                   url:"Page.php", 
+                   method:"POST",
+                   data:{idPage : idPage,cn:cn}, 
+                   success:function(result){ 
+                       $('#contentProduct').html(result);
+                     window.focus();
+                   }
+           });
+      
+   });
+     $(document).on('change','#dsChiNhanh',function(){
+      var cnhanh=$(this).val();
+      $.ajax({
+                   url:"Page.php", 
+                   method:"POST",
+                   data:{idPage : 1,cn:cnhanh}, 
+                   success:function(result){ 
+                       $('#contentProduct').html(result);
+                   }
+           });
+      pagination(cnhanh);
+   });
+       function pagination(cn){
+         $.ajax({
             url:"pageBar.php",
+            method:"POST",
+            data:{cn:cn},
             success:function(result){
                $('#pageBar').html(result);
             }
           });
-     });
+       }
+       // var page=<?php //echo $_GET['page'] ;?>;
+     //     function change(page){
+     //       var cn= $('#dsChiNhanh').val();
+     //         $.ajax({
+     //               url:"content_product.php", 
+     //               method:"POST",
+     //               data:{page : page,cn:cn}, 
+     //               success:function(result){ 
+     //                   $('#contentProduct').html(result);
+     //               }
+     //       });
+     //        pagination(cn);
+     //     }
+          function fnLaunch(ma){ 
+            var cn= $('#dsChiNhanh').val();
+            var urls="single-product.php?id="+ma+"&cn="+cn;
+            window.open(urls, "_blank");
+            // window.focus();
+         }
+     //   $(document).ready(function(){
+        //  var page=<?php //echo $_GET['page'] ;?>;
+        //   $.ajax({
+        //         url:"content_product.php", 
+        //         method:"POST",
+        //         data:{page : page}, 
+        //         success:function(result){ 
+        //             $('#contentProduct').html(result);
+        //         }
+        // });
+          
+     //    $.ajax({
+     //        url:"loadDSCN.php",
+     //        success:function(result){
+     //           $('#dsChiNhanh').html(result);
+     //           change(1);
+     //        }
+     //    });
+        
+     // });
 </script>

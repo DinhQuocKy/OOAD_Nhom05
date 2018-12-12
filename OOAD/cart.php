@@ -40,7 +40,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-   <body onload="showCart();Cart();total_Cart()">
+   <body onload="showCart();Cart()">
     <div class="header-area">
         <div class="container">
             <div class="row">
@@ -92,7 +92,7 @@
                 
                 <div class="col-sm-6">
                     <div class="shopping-item">
-                        <a href="cart.php"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Giỏ Hàng - </font></font><span class="cart-amunt"><font style="vertical-align: inherit;"><font id="TongTien" style="vertical-align: inherit;">38.000 VND</font></font></span> <i class="fa fa-shopping-cart"></i> <span class="product-count"><font style="vertical-align: inherit;"><font id="soLuong" style="vertical-align: inherit;">1</font></font></span></a>
+                        <a href="cart.php"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Giỏ Sách </font></font><span class="cart-amunt"><font style="vertical-align: inherit;"><font id="TongTien" style="vertical-align: inherit;"></font></font></span> <i class="fa fa-shopping-cart"></i> <span class="product-count"><font style="vertical-align: inherit;"><font id="soLuong" style="vertical-align: inherit;">0</font></font></span></a>
                     </div>
                 </div>
             </div>
@@ -212,11 +212,10 @@
                                     <thead>
                                         <tr>
                                             <th class="product-remove">&nbsp;</th>
-                                            <th class="product-thumbnail">&nbsp;</th>
+                                            <th class="product-thumbnail">Ảnh minh họa</th>
                                             <th class="product-name"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sản phẩm</font></font></th>
-                                            <th class="product-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Giá bán</font></font></th>
                                             <th class="product-quantity"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Số lượng</font></font></th>
-                                            <th class="product-subtotal"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Toàn bộ</font></font></th>
+                                            <th class="product-subtotal"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chi nhánh</font></font></th>
                                         </tr>
                                     </thead>
                                     <tbody id="cartList">
@@ -649,11 +648,21 @@
        function fnLaunch(ma)
        { 
           var urls="single-product.html?id="+ma;
-          var win=window.open(urls, "_self");
-          window.focus();
+          window.open(urls, "_self");
+          // window.focus();
         }
         function closeSearch() {
             document.getElementById("resultSearch").style.display = "none";
         }
+        $(document).on('click','#lapPhieu',function(){
+            $.ajax({
+            url:"Test.js",
+            method:"POST",
+            data:{idItem:idItem},
+            success:function(result){
+               $('#cartList').html(result);
+            }
+          });
+        });
     </script>
 </html>

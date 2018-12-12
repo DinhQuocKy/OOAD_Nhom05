@@ -170,17 +170,7 @@
                          <div id="myDropdownSearch" class="dropdown-contentSearch"  >
                              <input type="text" placeholder="Tìm kiếm..." id="myInputSearch" onkeyup="filterFunction()" >
                                     <div id="resultSearch" style="display:none">
-                                        <?php
-                                            include "dbconnect.php";
-                                            $result=mysqli_query($conn,"Select id, name from book order by id desc");
-                                            if (mysqli_num_rows($result)){
-                                                while($row=mysqli_fetch_row($result)){
-                                                    $name=mb_strtoupper($row[1]);
-                                                    $id=$row[0];
-                                                    echo "<a href='single-product.html?id=$id'>$name</a>";
-                                                }
-                                            }
-                                        ?>
+                                       
                                     </div>
                              </div> 
                         </div>
@@ -241,8 +231,9 @@
                         <?php
                             include_once "dbconnect.php";
                             $id=$_GET['id'];
+                            $cn=$_GET['cn'];
                             $result = new Connection();
-                            $db = $result->query("Select * from sach where ID_Sach=$id");
+                            $db = $result->query("Select s.*,sl.SL_Ton from sach s join sl_sach sl on s.ID_Sach=sl.ID_Sach where sl.ID_ChiNhanh='$cn' and s.ID_Sach='$id'");
                             if ($db->columnCount()>0){
                                 foreach ($db as $arr) {
                                     $id=$arr[0];
@@ -251,6 +242,7 @@
                                     $author=$arr[5];
                                     $image=$arr[7];
                                     $content=$arr[6];
+                                    $slTon=$arr[9];
                                     echo "<div class='row'>
                                             <div class='col-sm-12'>
                                                 <div class='product-images'>
@@ -259,13 +251,14 @@
                                                     <h2 class='product-name' id='name'>$name</h2>
                                                     <div class='product-inner-price'>
                                                         <ins>$price <u id='price'>đ</u></ins>
+                                                        <font>Số lượng tồn kho: $slTon</font>
                                                     </div>
                                                      <form action='' class='cart'>
                                             <div class='quantity'>
                                                 <input id='amount' type='number' size='4' class='input-text qty text' title='Qty' value='1' name='quantity' min='1' step='1'>
                                             </div>
                                         </form>   
-                                            <button class='add_to_cart_button' type='submit'>THÊM VÀO GIỎ</button>
+                                            <button class='add_to_cart_button' type='submit' onclick='addCart(\"$id\",\"$name\",false,\"$cn\",\"$image\")'>THÊM VÀO GIỎ</button>
 
                                         <div class='product-inner-category'>
                                             <p>Tác giả: <a href='' id='author'>$author</a></p>
