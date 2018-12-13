@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
 <!--
    ustora by freshdesignweb.com
    Twitter: https://twitter.com/freshdesignweb
@@ -33,7 +34,7 @@
       <![endif]-->
       <script type="text/javascript" src="js/Test.js"></script>
    </head>
-   <body>
+   <body onload="Cart()">
       
       <div class="header-area">
          <div class="container">
@@ -41,12 +42,7 @@
                <div class="col-md-8">
                   <div class="user-menu">
                      <ul>
-                        <li>
-                           <a href="#">
-                           <i class="fa fa-user"></i><!-- <font style="vertical-align: inherit;"> -->
-                              <span style="vertical-align: inherit;"> Tài khoản của tôi</span><!-- </font> -->
-                           </a>
-                        </li>
+                        <?php include_once 'checkAccount.php'; ?>
                         <li>
                            <a href="#">
                               <i class="fa fa-heart"></i>
@@ -65,12 +61,7 @@
                               <span style="vertical-align: inherit;"><!-- <font style="vertical-align: inherit;"> --> Kiểm tra</span><!-- </font> -->
                            </a>
                         </li>
-                        <li>
-                           <a href="#">
-                              <i class="fa fa-user"></i>
-                              <span style="vertical-align: inherit;"><!-- <font style="vertical-align: inherit;"> --> Đăng nhập</span><!-- </font> -->
-                           </a>
-                        </li>
+                        <?php include_once 'includes/login_logout.php'; ?>
                      </ul>
                   </div>
                </div>
@@ -142,15 +133,18 @@
                <div class="navbar-collapse collapse">
                   <ul class="nav navbar-nav">
                      <li><a href="index.php">TRANG CHỦ</a></li>
-                     <li class="active"><a href="shop.php?page=1">SẢN PHẨM</a></li>
+                     <li class="active"><a href="shop.php">SẢN PHẨM</a></li>
+                     <li><a href="search_page.php">TÌM KIẾM SẢN PHẨN</a></li>
                      <li><a href="cart.php">GIỎ HÀNG</a></li>
-                     <li><a href="checkout.php">THANH TOÁN</a></li>
+                     <li><a href="information.php">THÔNG TIN</a></li>
+
                      <li><a href="contact.php">LIÊN HỆ</a></li>
                   </ul>
                </div>
             </div>
          </div>
       </div>
+
       <!-- End mainmenu area -->   
       <div class="product-big-title-area">
          <div class="container">
@@ -163,6 +157,14 @@
             </div>
          </div>
       </div>
+      <div style="text-align: center;font-size: 18px;margin-top: 10px">
+         <b><i>Chi nhánh  </i></b>
+         <select id="dsChiNhanh">
+            <!-- <option value="CN001">Chi Nhánh 1</option>
+            <option value="CN002">Chi Nhánh 2</option>
+            <option value="CN003">Chi Nhánh 3</option> -->
+         </select>
+      </div>
       <div class="single-product-area">
          <div class="zigzag-bottom"></div>
          <div class="container">
@@ -173,7 +175,7 @@
                      <div class="product-pagination text-center">
                         <nav>
                            <ul class="pagination" id="pageBar">
-                              <li>1</li>
+                              <!-- <li>1</li> -->
                            </ul>
                         </nav>
                      </div>
@@ -269,29 +271,83 @@
    </body>
 </html>
 <script>
-
-          function fnLaunch(ma)
-         { 
-            var urls="single-product.php?id="+ma;
-            window.open(urls, "_blank");
-            // window.focus();
-
-       }
-       $(document).ready(function(){
-         var page=<?php echo $_GET['page'] ;?>;
-          $.ajax({
-                url:"content_product.php", 
-                method:"POST",
-                data:{page : page}, 
-                success:function(result){ 
-                    $('#contentProduct').html(result);
-                }
+   var cn;
+   
+     $(document).ready(function(){
+      //load combobox chi nhánh 
+       $.ajax({
+            url:"loadDSCN.php",
+            success:function(result){
+               $('#dsChiNhanh').html(result);
+               cn=$('#dsChiNhanh').val();
+               //html phân trang
+               pagination(cn);
+            }
         });
-          $.ajax({
+
+         //showContent mới load trang
+         $.ajax({
+                   url:"Page.php", 
+                   method:"POST",
+                   data:{idPage : 1,cn:'CN001'}, 
+                   success:function(result){ 
+                       $('#contentProduct').html(result);
+                   }
+           });
+     });
+     $(document).on('click','.page',function(){
+      var idPage=$(this).attr('id');
+       cn=$('#dsChiNhanh').val();
+      $.ajax({
+                   url:"Page.php", 
+                   method:"POST",
+                   data:{idPage : idPage,cn:cn}, 
+                   success:function(result){ 
+                       $('#contentProduct').html(result);
+                     window.focus();
+                   }
+           });
+      
+      
+   });
+     $(document).on('change','#dsChiNhanh',function(){
+      var cnhanh=$(this).val();
+      $.ajax({
+                   url:"Page.php", 
+                   method:"POST",
+                   data:{idPage : 1,cn:cnhanh}, 
+                   success:function(result){ 
+                       $('#contentProduct').html(result);
+                   }
+           });
+      pagination(cnhanh);
+   });
+       function pagination(cn){
+         $.ajax({
             url:"pageBar.php",
+            method:"POST",
+            data:{cn:cn},
             success:function(result){
                $('#pageBar').html(result);
             }
           });
-     });
+       }
+       
+          function fnLaunch(ma){ 
+            var cn= $('#dsChiNhanh').val();
+            var urls="single-product.php?id="+ma+"&cn="+cn;
+            window.open(urls, "_blank");
+            // window.focus();
+         }
+     $(document).ready(function(){
+        $('#log_out').click(function(){
+            $.ajax({
+               url: 'logout.php',
+               success:function(result){
+
+               }
+            });
+         });
+    });
+     
 </script>

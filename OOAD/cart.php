@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
 <!--
 	ustora by freshdesignweb.com
 	Twitter: https://twitter.com/freshdesignweb
@@ -40,18 +41,18 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-   <body onload="showCart();Cart();total_Cart()">
+   <body onload="showCart();Cart()">
     <div class="header-area">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
                     <div class="user-menu">
                         <ul>
-                            <li><a href="#"><i class="fa fa-user"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Tài khoản của tôi</font></font></a></li>
+                            <?php include_once 'checkAccount.php'; ?>
                             <li><a href="#"><i class="fa fa-heart"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Danh sách yêu thích</font></font></a></li>
                             <li><a href="cart.html"><i class="fa fa-user"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Giỏ hàng của tôi</font></font></a></li>
                             <li><a href="checkout.html"><i class="fa fa-user"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Kiểm tra</font></font></a></li>
-                            <li><a href="#"><i class="fa fa-user"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Đăng nhập</font></font></a></li>
+                            <?php include_once 'includes/login_logout.php'; ?>
                         </ul>
                     </div>
                 </div>
@@ -92,7 +93,7 @@
                 
                 <div class="col-sm-6">
                     <div class="shopping-item">
-                        <a href="cart.php"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Giỏ Hàng - </font></font><span class="cart-amunt"><font style="vertical-align: inherit;"><font id="TongTien" style="vertical-align: inherit;">38.000 VND</font></font></span> <i class="fa fa-shopping-cart"></i> <span class="product-count"><font style="vertical-align: inherit;"><font id="soLuong" style="vertical-align: inherit;">1</font></font></span></a>
+                        <a href="cart.php"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Giỏ Sách </font></font><span class="cart-amunt"><font style="vertical-align: inherit;"><font id="TongTien" style="vertical-align: inherit;"></font></font></span> <i class="fa fa-shopping-cart"></i> <span class="product-count"><font style="vertical-align: inherit;"><font id="soLuong" style="vertical-align: inherit;">0</font></font></span></a>
                     </div>
                 </div>
             </div>
@@ -113,9 +114,11 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="index.php">TRANG CHỦ</a></li>
-                        <li><a href="shop.php?page=1">SẢN PHẨM</a></li>
-                        <li  class="active"><a href="cart.php">GIỎ HÀNG</a></li>
-                        <li><a href="checkout.php">THANH TOÁN</a></li>
+                        <li><a href="shop.php">SẢN PHẨM</a></li>
+                        <li><a href="search_page.php">TÌM KIẾM SẢN PHẨN</a></li>
+                        <li class="active"><a href="cart.php">GIỎ HÀNG</a></li>
+                        <li><a href="information.php">THÔNG TIN</a></li>
+
                         <li><a href="contact.php">LIÊN HỆ</a></li>
                     </ul>
                 </div>  
@@ -207,16 +210,15 @@
                 <div class="col-md-8">
                     <div class="product-content-right">
                         <div class="woocommerce">
-                            <form method="post" action="#">
+                            <form method="post" action="" id="formLapPhieu">
                                 <table cellspacing="0" class="shop_table cart">
                                     <thead>
                                         <tr>
                                             <th class="product-remove">&nbsp;</th>
-                                            <th class="product-thumbnail">&nbsp;</th>
+                                            <th class="product-thumbnail">Ảnh minh họa</th>
                                             <th class="product-name"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sản phẩm</font></font></th>
-                                            <th class="product-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Giá bán</font></font></th>
                                             <th class="product-quantity"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Số lượng</font></font></th>
-                                            <th class="product-subtotal"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Toàn bộ</font></font></th>
+                                            <th class="product-subtotal"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chi nhánh</font></font></th>
                                         </tr>
                                     </thead>
                                     <tbody id="cartList">
@@ -275,274 +277,6 @@
                                     </tbody>
                                 </table>
                             </div>
-
-
-                            <form method="post" action="#" class="shipping_calculator">
-                                <h2><a class="shipping-calculator-button" data-toggle="collapse" href="#calcalute-shipping-wrap" aria-expanded="false" aria-controls="calcalute-shipping-wrap"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tính toán giao hàng</font></font></a></h2>
-
-                                <section id="calcalute-shipping-wrap" class="shipping-calculator-form collapse">
-
-                                <p class="form-row form-row-wide">
-                                <select rel="calc_shipping_state" class="country_to_state" id="calc_shipping_country" name="calc_shipping_country">
-                                    <option value=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chọn một quốc gia…</font></font></option>
-                                    <option value="AX"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Quần đảo Aland</font></font></option>
-                                    <option value="AF"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Afghanistan</font></font></option>
-                                    <option value="AL"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Albania</font></font></option>
-                                    <option value="DZ"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Algeria</font></font></option>
-                                    <option value="AD"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Andorra</font></font></option>
-                                    <option value="AO"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Angola</font></font></option>
-                                    <option value="AI"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Anguilla</font></font></option>
-                                    <option value="AQ"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nam Cực</font></font></option>
-                                    <option value="AG"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Antigua và Barbuda</font></font></option>
-                                    <option value="AR"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Argentina</font></font></option>
-                                    <option value="AM"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Armenia</font></font></option>
-                                    <option value="AW"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Aruba</font></font></option>
-                                    <option value="AU">Australia</option>
-                                    <option value="AT">Austria</option>
-                                    <option value="AZ">Azerbaijan</option>
-                                    <option value="BS">Bahamas</option>
-                                    <option value="BH">Bahrain</option>
-                                    <option value="BD">Bangladesh</option>
-                                    <option value="BB">Barbados</option>
-                                    <option value="BY">Belarus</option>
-                                    <option value="PW">Belau</option>
-                                    <option value="BE">Belgium</option>
-                                    <option value="BZ">Belize</option>
-                                    <option value="BJ">Benin</option>
-                                    <option value="BM">Bermuda</option>
-                                    <option value="BT">Bhutan</option>
-                                    <option value="BO">Bolivia</option>
-                                    <option value="BQ">Bonaire, Saint Eustatius and Saba</option>
-                                    <option value="BA">Bosnia and Herzegovina</option>
-                                    <option value="BW">Botswana</option>
-                                    <option value="BV">Bouvet Island</option>
-                                    <option value="BR">Brazil</option>
-                                    <option value="IO">British Indian Ocean Territory</option>
-                                    <option value="VG">British Virgin Islands</option>
-                                    <option value="BN">Brunei</option>
-                                    <option value="BG">Bulgaria</option>
-                                    <option value="BF">Burkina Faso</option>
-                                    <option value="BI">Burundi</option>
-                                    <option value="KH">Cambodia</option>
-                                    <option value="CM">Cameroon</option>
-                                    <option value="CA">Canada</option>
-                                    <option value="CV">Cape Verde</option>
-                                    <option value="KY">Cayman Islands</option>
-                                    <option value="CF">Central African Republic</option>
-                                    <option value="TD">Chad</option>
-                                    <option value="CL">Chile</option>
-                                    <option value="CN">China</option>
-                                    <option value="CX">Christmas Island</option>
-                                    <option value="CC">Cocos (Keeling) Islands</option>
-                                    <option value="CO">Colombia</option>
-                                    <option value="KM">Comoros</option>
-                                    <option value="CG">Congo (Brazzaville)</option>
-                                    <option value="CD">Congo (Kinshasa)</option>
-                                    <option value="CK">Cook Islands</option>
-                                    <option value="CR">Costa Rica</option>
-                                    <option value="HR">Croatia</option>
-                                    <option value="CU">Cuba</option>
-                                    <option value="CW">CuraÇao</option>
-                                    <option value="CY">Cyprus</option>
-                                    <option value="CZ">Czech Republic</option>
-                                    <option value="DK">Denmark</option>
-                                    <option value="DJ">Djibouti</option>
-                                    <option value="DM">Dominica</option>
-                                    <option value="DO">Dominican Republic</option>
-                                    <option value="EC">Ecuador</option>
-                                    <option value="EG">Egypt</option>
-                                    <option value="SV">El Salvador</option>
-                                    <option value="GQ">Equatorial Guinea</option>
-                                    <option value="ER">Eritrea</option>
-                                    <option value="EE">Estonia</option>
-                                    <option value="ET">Ethiopia</option>
-                                    <option value="FK">Falkland Islands</option>
-                                    <option value="FO">Faroe Islands</option>
-                                    <option value="FJ">Fiji</option>
-                                    <option value="FI">Finland</option>
-                                    <option value="FR">France</option>
-                                    <option value="GF">French Guiana</option>
-                                    <option value="PF">French Polynesia</option>
-                                    <option value="TF">French Southern Territories</option>
-                                    <option value="GA">Gabon</option>
-                                    <option value="GM">Gambia</option>
-                                    <option value="GE">Georgia</option>
-                                    <option value="DE">Germany</option>
-                                    <option value="GH">Ghana</option>
-                                    <option value="GI">Gibraltar</option>
-                                    <option value="GR">Greece</option>
-                                    <option value="GL">Greenland</option>
-                                    <option value="GD">Grenada</option>
-                                    <option value="GP">Guadeloupe</option>
-                                    <option value="GT">Guatemala</option>
-                                    <option value="GG">Guernsey</option>
-                                    <option value="GN">Guinea</option>
-                                    <option value="GW">Guinea-Bissau</option>
-                                    <option value="GY">Guyana</option>
-                                    <option value="HT">Haiti</option>
-                                    <option value="HM">Heard Island and McDonald Islands</option>
-                                    <option value="HN">Honduras</option>
-                                    <option value="HK">Hong Kong</option>
-                                    <option value="HU">Hungary</option>
-                                    <option value="IS">Iceland</option>
-                                    <option value="IN">India</option>
-                                    <option value="ID">Indonesia</option>
-                                    <option value="IR">Iran</option>
-                                    <option value="IQ">Iraq</option>
-                                    <option value="IM">Isle of Man</option>
-                                    <option value="IL">Israel</option>
-                                    <option value="IT">Italy</option>
-                                    <option value="CI">Ivory Coast</option>
-                                    <option value="JM">Jamaica</option>
-                                    <option value="JP">Japan</option>
-                                    <option value="JE">Jersey</option>
-                                    <option value="JO">Jordan</option>
-                                    <option value="KZ">Kazakhstan</option>
-                                    <option value="KE">Kenya</option>
-                                    <option value="KI">Kiribati</option>
-                                    <option value="KW">Kuwait</option>
-                                    <option value="KG">Kyrgyzstan</option>
-                                    <option value="LA">Laos</option>
-                                    <option value="LV">Latvia</option>
-                                    <option value="LB">Lebanon</option>
-                                    <option value="LS">Lesotho</option>
-                                    <option value="LR">Liberia</option>
-                                    <option value="LY">Libya</option>
-                                    <option value="LI">Liechtenstein</option>
-                                    <option value="LT">Lithuania</option>
-                                    <option value="LU">Luxembourg</option>
-                                    <option value="MO">Macao S.A.R., China</option>
-                                    <option value="MK">Macedonia</option>
-                                    <option value="MG">Madagascar</option>
-                                    <option value="MW">Malawi</option>
-                                    <option value="MY">Malaysia</option>
-                                    <option value="MV">Maldives</option>
-                                    <option value="ML">Mali</option>
-                                    <option value="MT">Malta</option>
-                                    <option value="MH">Marshall Islands</option>
-                                    <option value="MQ">Martinique</option>
-                                    <option value="MR">Mauritania</option>
-                                    <option value="MU">Mauritius</option>
-                                    <option value="YT">Mayotte</option>
-                                    <option value="MX">Mexico</option>
-                                    <option value="FM">Micronesia</option>
-                                    <option value="MD">Moldova</option>
-                                    <option value="MC">Monaco</option>
-                                    <option value="MN">Mongolia</option>
-                                    <option value="ME">Montenegro</option>
-                                    <option value="MS">Montserrat</option>
-                                    <option value="MA">Morocco</option>
-                                    <option value="MZ">Mozambique</option>
-                                    <option value="MM">Myanmar</option>
-                                    <option value="NA">Namibia</option>
-                                    <option value="NR">Nauru</option>
-                                    <option value="NP">Nepal</option>
-                                    <option value="NL">Netherlands</option>
-                                    <option value="AN">Netherlands Antilles</option>
-                                    <option value="NC">New Caledonia</option>
-                                    <option value="NZ">New Zealand</option>
-                                    <option value="NI">Nicaragua</option>
-                                    <option value="NE">Niger</option>
-                                    <option value="NG">Nigeria</option>
-                                    <option value="NU">Niue</option>
-                                    <option value="NF">Norfolk Island</option>
-                                    <option value="KP">North Korea</option>
-                                    <option value="NO">Norway</option>
-                                    <option value="OM">Oman</option>
-                                    <option value="PK">Pakistan</option>
-                                    <option value="PS">Palestinian Territory</option>
-                                    <option value="PA">Panama</option>
-                                    <option value="PG">Papua New Guinea</option>
-                                    <option value="PY">Paraguay</option>
-                                    <option value="PE">Peru</option>
-                                    <option value="PH">Philippines</option>
-                                    <option value="PN">Pitcairn</option>
-                                    <option value="PL">Poland</option>
-                                    <option value="PT">Portugal</option>
-                                    <option value="QA">Qatar</option>
-                                    <option value="IE">Republic of Ireland</option>
-                                    <option value="RE">Reunion</option>
-                                    <option value="RO">Romania</option>
-                                    <option value="RU">Russia</option>
-                                    <option value="RW">Rwanda</option>
-                                    <option value="ST">São Tomé and Príncipe</option>
-                                    <option value="BL">Saint Barthélemy</option>
-                                    <option value="SH">Saint Helena</option>
-                                    <option value="KN">Saint Kitts and Nevis</option>
-                                    <option value="LC">Saint Lucia</option>
-                                    <option value="SX">Saint Martin (Dutch part)</option>
-                                    <option value="MF">Saint Martin (French part)</option>
-                                    <option value="PM">Saint Pierre and Miquelon</option>
-                                    <option value="VC">Saint Vincent and the Grenadines</option>
-                                    <option value="SM">San Marino</option>
-                                    <option value="SA">Saudi Arabia</option>
-                                    <option value="SN">Senegal</option>
-                                    <option value="RS">Serbia</option>
-                                    <option value="SC">Seychelles</option>
-                                    <option value="SL">Sierra Leone</option>
-                                    <option value="SG">Singapore</option>
-                                    <option value="SK">Slovakia</option>
-                                    <option value="SI">Slovenia</option>
-                                    <option value="SB">Solomon Islands</option>
-                                    <option value="SO">Somalia</option>
-                                    <option value="ZA">South Africa</option>
-                                    <option value="GS">South Georgia/Sandwich Islands</option>
-                                    <option value="KR">South Korea</option>
-                                    <option value="SS">South Sudan</option>
-                                    <option value="ES">Spain</option>
-                                    <option value="LK">Sri Lanka</option>
-                                    <option value="SD">Sudan</option>
-                                    <option value="SR">Suriname</option>
-                                    <option value="SJ">Svalbard and Jan Mayen</option>
-                                    <option value="SZ">Swaziland</option>
-                                    <option value="SE">Sweden</option>
-                                    <option value="CH">Switzerland</option>
-                                    <option value="SY">Syria</option>
-                                    <option value="TW">Taiwan</option>
-                                    <option value="TJ">Tajikistan</option>
-                                    <option value="TZ">Tanzania</option>
-                                    <option value="TH">Thailand</option>
-                                    <option value="TL">Timor-Leste</option>
-                                    <option value="TG">Togo</option>
-                                    <option value="TK">Tokelau</option>
-                                    <option value="TO">Tonga</option>
-                                    <option value="TT">Trinidad and Tobago</option>
-                                    <option value="TN">Tunisia</option>
-                                    <option value="TR">Turkey</option>
-                                    <option value="TM">Turkmenistan</option>
-                                    <option value="TC">Turks and Caicos Islands</option>
-                                    <option value="TV">Tuvalu</option>
-                                    <option value="UG">Uganda</option>
-                                    <option value="UA">Ukraine</option>
-                                    <option value="AE">United Arab Emirates</option>
-                                    <option selected="selected" value="GB">United Kingdom (UK)</option>
-                                    <option value="US">United States (US)</option>
-                                    <option value="UY">Uruguay</option>
-                                    <option value="UZ">Uzbekistan</option>
-                                    <option value="VU">Vanuatu</option>
-                                    <option value="VA">Vatican</option>
-                                    <option value="VE">Venezuela</option>
-                                    <option value="VN">Vietnam</option>
-                                    <option value="WF">Wallis and Futuna</option>
-                                    <option value="EH">Western Sahara</option>
-                                    <option value="WS">Western Samoa</option>
-                                    <option value="YE">Yemen</option>
-                                    <option value="ZM">Zambia</option>
-                                    <option value="ZW">Zimbabwe</option>
-                                </select>
-                                </p>
-
-                                <p class="form-row form-row-wide"><input type="text" id="calc_shipping_state" name="calc_shipping_state" placeholder="State / county" value="" class="input-text"> </p>
-
-                                <p class="form-row form-row-wide"><input type="text" id="calc_shipping_postcode" name="calc_shipping_postcode" placeholder="Postcode / Zip" value="" class="input-text"></p>
-
-
-                                <p><button class="button" value="1" name="calc_shipping" type="submit">Update Totals</button></p>
-
-                                </section>
-                            </form>
-
-
                             </div>
                         </div>                        
                     </div>                    
@@ -646,14 +380,177 @@
     <!-- Main Script -->
     <script src="js/main.js"></script>
     <script type="text/javascript">
-       function fnLaunch(ma)
-       { 
+       var array=[];
+        var chucVu="";
+        var arr_json=[];
+        var jsonArray="";
+        var id_user = <?php echo $_SESSION['ID']; ?>
+       function fnLaunch(ma){ 
           var urls="single-product.html?id="+ma;
-          var win=window.open(urls, "_self");
-          window.focus();
+          window.open(urls, "_self");
+          // window.focus();
         }
-        function closeSearch() {
-            document.getElementById("resultSearch").style.display = "none";
+        function SL_SachMuon(){
+            //m ko tính những cuốn nó đã mượn trong database à
+            //chưa tính
+            //t nghĩ phải cộng vô những cuốn nó đã mượn trong database vào biến sl
+            //build coi thử man
+            var sl=0;
+            for (var i=0;i<localStorage.length;++i){
+                var key=localStorage.key(i);
+                if (key.charAt(0)=='c'&&key.charAt(1)=='a'){
+                    var cart=JSON.parse(localStorage.getItem(key));
+                    sl+=parseInt(cart.soluong);
+                }
+            }
+            return sl;
         }
+        $(document).ready(function(){
+            $('#formLapPhieu').submit(function(e){
+            //bắt đầu từ đây
+                
+           $.ajax({
+            url:"xuLyViPham.php",
+            method:"POST",
+            data:{id:id_user},
+            success:function(result){
+               if (result=='1'){
+                    alert("Đã pass phần kiểm tra vi phạm");
+                    KT_GioiHan_MuonSach();
+               }
+               else alert("Bạn đang bị vi phạm");
+            }
+          });
+                e.preventDefault();
+            });
+        });
+        
+        function KT_GioiHan_MuonSach(){
+            //Chỗ này sẽ trả về chức vụ r xét số lượng sách mún mượn của nó có thỏa mản k
+            $.ajax({
+            url:"gioiHanMuonSach.php",
+            method:"POST",
+            data:{id:id_user},
+            success:function(result){
+                chucVu=result;
+                var sl_sachMuon=SL_SachMuon();//cái này là cái hàm hai hàm khác à
+               if ((result==='SV')||(result==="DGK"&&sl_sachMuon<=3)||(result==="GV"&&sl_sachMuon<=5)){
+                    alert("Đã pass phần giới hạn mượn sách");
+                    //chỗ này là xem những cuốn sách nó mượn nằm ở bao nhiu chi nhánh
+                    baoNhieuChiNhanh();
+                    createDataForEachBranch();
+                    createJSONArrayTotalForUpdate();
+                    // for (var i=0;i<arr_json.length;++i) alert(arr_json[i]);
+                     lapPhieu();
+                     updateSL_Sach();
+                    // createJSON_Array();
+               }
+               else alert("Bạn không được mượn quá số lượng sách");
+            }
+          });
+        }
+        function createDataForEachBranch(){
+            for (var i=0;i<array.length;++i){
+                arr_json.push(createJSON_Array(array[i]));
+            }
+        }
+        function createJSON_Array(chiNhanh){
+            var data="[";
+            for (var i=0;i<localStorage.length;++i){
+                var key=localStorage.key(i);
+                if (key.charAt(0)=='c'&&key.charAt(1)=='a'){
+                    if (JSON.parse(localStorage.getItem(key)).cn==chiNhanh){
+                        data+=localStorage.getItem(key);
+                        data+=",";
+                    }
+                }
+            }
+            data=data.substring(0,data.length-1);
+            data+="]";
+            return data;
+        }
+        function baoNhieuChiNhanh(){//hàm này dùng để xem những cuốn sách trong giỏ hàng nằm trong bao nhiu chi nhánh
+            var count=0;
+            for (var i=0;i<localStorage.length;++i){
+                var key=localStorage.key(i);
+                if (key.charAt(0)=='c'&&key.charAt(1)=='a'){
+                    var cart=JSON.parse(localStorage.getItem(key));
+                    if (check(cart)) count++;
+                }
+            }
+            return count;
+        }
+        function check(cart){
+            for (var i=0;i<array.length;++i){
+                if (array[i]==cart.cn){
+                    return false;
+                } 
+            }
+            array.push(cart.cn);
+            return true;
+        }
+        function lapPhieu(){
+           // for (var i=0;i<arr_json.length;++i) alert(arr_json[i]);
+           var index=0;
+           //ajax chạy luồng k chạy từ trên xún
+            for (var i=0;i<array.length;++i){
+                $.ajax({
+                url:"lapPhieu.php",
+                method:"POST",
+                data:{id:id_user,chucVu:chucVu,cn:array[i]},
+                success:function(result){
+                    // alert(i);
+                    // alert(count);
+                    taoChiTietPhieu(result,index);   
+                    index++;
+                }
+              });
+            }
+        }
+        function createJSONArrayTotalForUpdate(){
+            jsonArray="[";
+            for (var i=0;i<arr_json.length;++i){
+                jsonArray+=arr_json[i].substring(1,arr_json[i].length-1);
+                jsonArray+=",";
+            }
+            jsonArray=jsonArray.substring(0,jsonArray.length-1);
+            jsonArray+="]";
+        }
+        function taoChiTietPhieu(idPhieu,index){
+            // alert(arr_json[i]);
+                $.ajax({
+                url:"chiTietPhieuMuon.php",
+                method:"POST",
+                data:{data:arr_json[index],id_phieu:idPhieu},
+                success:function(result){
+                }
+              });
+            }
+        function updateSL_Sach(){
+             $.ajax({
+                url:"updateSL.php",
+                method:"POST",
+                data:{data:jsonArray},
+                success:function(result){
+                    if (result=="1") localStorage.clear();
+                    location.reload(); 
+                }
+              });
+        }
+        
+        
     </script>
 </html>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#log_out').click(function(){
+            $.ajax({
+               url: 'logout.php',
+               success:function(result){
+
+               }
+            });
+         });
+    });
+</script>

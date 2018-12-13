@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
 <!--
 	ustora by freshdesignweb.com
 	Twitter: https://twitter.com/freshdesignweb
@@ -43,11 +44,11 @@
                 <div class="col-md-8">
                     <div class="user-menu">
                         <ul>
-                            <li><a href="#"><i class="fa fa-user"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Tài khoản của tôi</font></font></a></li>
+                            <?php include_once 'checkAccount.php'; ?>
                             <li><a href="#"><i class="fa fa-heart"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Danh sách yêu thích</font></font></a></li>
                             <li><a href="cart.html"><i class="fa fa-user"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Giỏ hàng của tôi</font></font></a></li>
                             <li><a href="checkout.html"><i class="fa fa-user"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Kiểm tra</font></font></a></li>
-                            <li><a href="#"><i class="fa fa-user"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Đăng nhập</font></font></a></li>
+                            <?php include_once 'includes/login_logout.php'; ?>
                         </ul>
                     </div>
                 </div>
@@ -109,9 +110,10 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.php">TRANG CHỦ</a></li>
-                        <li><a href="shop.php?page=1">SẢN PHẨM</a></li>
+                        <li><a href="shop.php">SẢN PHẨM</a></li>
+                        <li><a href="search_page.php">TÌM KIẾM SẢN PHẨN</a></li>
                         <li><a href="cart.php">GIỎ HÀNG</a></li>
-                        <li><a href="checkout.php">THANH TOÁN</a></li>
+                        <li><a href="information.php">THÔNG TIN</a></li>
                         <li><a href="contact.php">LIÊN HỆ</a></li>
                     </ul>
                 </div>  
@@ -525,3 +527,15 @@
       </script>
   </body>
 </html>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#log_out').click(function(){
+            $.ajax({
+               url: 'logout.php',
+               success:function(result){
+
+               }
+            });
+         });
+    });
+</script>

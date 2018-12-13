@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
 <!--
 	ustora by freshdesignweb.com
 	Twitter: https://twitter.com/freshdesignweb
@@ -68,11 +69,11 @@
                 <div class="col-md-8">
                     <div class="user-menu">
                         <ul>
-                            <li><a href="#"><i class="fa fa-user"></i> Tài khoản của tôi</a></li>
+                            <?php include_once 'checkAccount.php'; ?>
                             <li><a href="#"><i class="fa fa-heart"></i> Danh sách yêu thích</a></li>
                             <li><a href="cart.html"><i class="fa fa-user"></i> Giỏ hàng của tôi</a></li>
                             <li><a href="checkout.html"><i class="fa fa-user"></i> Kiểm tra</a></li>
-                            <li><a href="#"><i class="fa fa-user"></i> Đăng nhập</a></li>
+                            <?php include_once 'includes/login_logout.php'; ?>
                         </ul>
                     </div>
                 </div>
@@ -134,10 +135,11 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="index.php">TRANG CHỦ</a></li>
-                        <li><a href="shop.php?page=1">SẢN PHẨM</a></li>
+                        <li><a href="shop.php">SẢN PHẨM</a></li>
+                        <li><a href="search_page.php">TÌM KIẾM SẢN PHẨN</a></li>
                         <li class="active"><a href="single-product.php">CHI TIẾT SẢN PHẨM</a></li>
                         <li><a href="cart.php">GIỎ HÀNG</a></li>
-                        <li><a href="checkout.php">THANH TOÁN</a></li>
+                         <li><a href="information.php">THÔNG TIN</a></li>
                         <li><a href="contact.php">LIÊN HỆ</a></li>
 
                     </ul>
@@ -165,25 +167,6 @@
             <div class="row">
                 <div class="col-md-4">
                     
-                       <h2 class="sidebar-title" style="margin-bottom: 15px;" onclick="hideResult()">Tìm Kiếm</h2>
-                        <div class="dropdownSearch" >
-                         <div id="myDropdownSearch" class="dropdown-contentSearch"  >
-                             <input type="text" placeholder="Tìm kiếm..." id="myInputSearch" onkeyup="filterFunction()" >
-                                    <div id="resultSearch" style="display:none">
-                                        <?php
-                                            include "dbconnect.php";
-                                            $result=mysqli_query($conn,"Select id, name from book order by id desc");
-                                            if (mysqli_num_rows($result)){
-                                                while($row=mysqli_fetch_row($result)){
-                                                    $name=mb_strtoupper($row[1]);
-                                                    $id=$row[0];
-                                                    echo "<a href='single-product.html?id=$id'>$name</a>";
-                                                }
-                                            }
-                                        ?>
-                                    </div>
-                             </div> 
-                        </div>
                     <br>
                     <br>
                     
@@ -241,8 +224,9 @@
                         <?php
                             include_once "dbconnect.php";
                             $id=$_GET['id'];
+                            $cn=$_GET['cn'];
                             $result = new Connection();
-                            $db = $result->query("Select * from sach where ID_Sach=$id");
+                            $db = $result->query("Select s.*,sl.SL_Ton from sach s join sl_sach sl on s.ID_Sach=sl.ID_Sach where sl.ID_ChiNhanh='$cn' and s.ID_Sach='$id'");
                             if ($db->columnCount()>0){
                                 foreach ($db as $arr) {
                                     $id=$arr[0];
@@ -251,6 +235,7 @@
                                     $author=$arr[5];
                                     $image=$arr[7];
                                     $content=$arr[6];
+                                    $slTon=$arr[9];
                                     echo "<div class='row'>
                                             <div class='col-sm-12'>
                                                 <div class='product-images'>
@@ -259,13 +244,14 @@
                                                     <h2 class='product-name' id='name'>$name</h2>
                                                     <div class='product-inner-price'>
                                                         <ins>$price <u id='price'>đ</u></ins>
+                                                        <font>Số lượng tồn kho: $slTon</font>
                                                     </div>
                                                      <form action='' class='cart'>
                                             <div class='quantity'>
                                                 <input id='amount' type='number' size='4' class='input-text qty text' title='Qty' value='1' name='quantity' min='1' step='1'>
                                             </div>
                                         </form>   
-                                            <button class='add_to_cart_button' type='submit'>THÊM VÀO GIỎ</button>
+                                            <button class='add_to_cart_button' type='submit' onclick='addCart(\"$id\",\"$name\",false,\"$cn\",\"$image\")'>THÊM VÀO GIỎ</button>
 
                                         <div class='product-inner-category'>
                                             <p>Tác giả: <a href='' id='author'>$author</a></p>
@@ -655,34 +641,14 @@
       window.focus();
 
  }
+ $(document).ready(function(){
+        $('#log_out').click(function(){
+            $.ajax({
+               url: 'logout.php',
+               success:function(result){
+
+               }
+            });
+         });
+    });
 </script>
-<!-- <script type="text/javascript">
-    var products=[
-    {id:"001",name:"Đắc nhân tâm",priceBefore:76000,priceAfter:38000,author:"Dale Carnegie",image:"images/DacNhanTam.jpg",content:"nội dung chỗ này"},
-    {id:"002",name:"5 Centimet Trên Giây",priceBefore:76000,priceAfter:35000,author:"Shinkai Makoto",image:"images/DacNhanTam.jpg",content:"nội dung chỗ này"}
-]
-
-function showContent(){
-    var ma=getURLParamter('id');
-    for (var i = 0 ; i <= products.length; i++){
-        if(products[i].id==ma){
-            document.getElementById("link").innerHTML=products[i].name;
-            document.getElementById("name").innerHTML=products[i].name;
-            document.getElementById("author").innerHTML=products[i].author;
-            document.getElementById("priceBefore").innerHTML=parseInt(products[i].priceBefore)+'đ';
-            document.getElementById("priceAfter").innerHTML=parseInt(products[i].priceAfter)+'đ';
-            document.getElementById("content").innerHTML=products[i].content;
-            document.getElementById("image").src=products[i].image;
-        }
-    }
-}
-function getURLParamter(sParam){
-    var sPageURL=window.location.search.substring(1);
-    var sURLVariables=sPageURL.split('&');
-    for(var i=0;i<sURLVariables.length;++i){
-        var sParameterName=sURLVariables[i].split('=');
-        if(sParameterName[0]==sParam) return sParameterName[1];
-    }
-}
-
-</script> -->

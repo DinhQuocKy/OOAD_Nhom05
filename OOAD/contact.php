@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
 <html lang="en">
    <head>
     <meta charset="utf-8">
@@ -33,11 +34,11 @@
                <div class="col-md-8">
                   <div class="user-menu">
                      <ul>
-                        <li><a href="#"><i class="fa fa-user"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Tài khoản của tôi</font></font></a></li>
+                        <?php include_once 'checkAccount.php'; ?>
                         <li><a href="#"><i class="fa fa-heart"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Danh sách yêu thích</font></font></a></li>
                         <li><a href="cart.html"><i class="fa fa-user"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Giỏ hàng của tôi</font></font></a></li>
                         <li><a href="checkout.html"><i class="fa fa-user"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Kiểm tra</font></font></a></li>
-                        <li><a href="#"><i class="fa fa-user"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Đăng nhập</font></font></a></li>
+                        <?php include_once 'includes/login_logout.php'; ?>
                      </ul>
                   </div>
                </div>
@@ -97,9 +98,11 @@
                   <div class="navbar-collapse collapse">
                      <ul class="nav navbar-nav">
                         <li><a href="index.php">TRANG CHỦ</a></li>
-                        <li><a href="shop.php?page=1">SẢN PHẨM</a></li>
+                        <li><a href="shop.php">SẢN PHẨM</a></li>
+                        <li><a href="search_page.php">TÌM KIẾM SẢN PHẨN</a></li>
                         <li><a href="cart.php">GIỎ HÀNG</a></li>
-                        <li><a href="checkout.php">THANH TOÁN</a></li>
+                        <li><a href="information.php">THÔNG TIN</a></li>
+
                         <li class="active"><a href="contact.php">LIÊN HỆ</a></li>
                      </ul>
                   </div>
@@ -219,17 +222,17 @@
             </div>
          </div>
       </div>
-      <!-- End footer bottom area -->
-      <!-- Latest jQuery form server -->
-<!--       <script async="" src="https://www.google-analytics.com/analytics.js"></script><script src="https://code.jquery.com/jquery.min.js"></script>
- -->      <!-- Bootstrap JS form CDN -->
-<!--       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
- -->      <!-- jQuery sticky menu -->
-      <!-- <script src="js/owl.carousel.min.js"></script>
-      <script src="js/jquery.sticky.js"></script>
-      jQuery easing -->
-<!--       <script src="js/jquery.easing.1.3.min.js"></script>
- -->      <!-- Main Script -->
-<!--       <script src="js/main.js"></script> -->
  </html>
 
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#log_out').click(function(){
+            $.ajax({
+               url: 'logout.php',
+               success:function(result){
+
+               }
+            });
+         });
+    });
+</script>
