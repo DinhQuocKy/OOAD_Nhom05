@@ -170,30 +170,30 @@
                         <h2 class="sidebar-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Các sản phẩm</font></font></h2>
                         <div class="thubmnail-recent">
                             <img src="images/CongPhaToan2.jpg" class="recent-thumb" alt="">
-                            <h2><p onclick="fnLaunch('007');" style="cursor: pointer;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Công Phá Toán 2</font></font></p></h2>
+                            <h2><p onclick="fnLaunch('003','CN001');" style="cursor: pointer;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Công Phá Toán 2</font></font></p></h2>
                             <div class="product-sidebar-price">
-                                <ins><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">139.000 VND</font></font></ins> <del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">179.000 VND</font></font></del>
+                                <ins><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">139.000 VND</font></font></ins> <!-- <del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">179.000 VND</font></font></del> -->
                             </div>                             
                         </div>
                         <div class="thubmnail-recent">
                             <img src="images/CongPhaToan3.jpg" class="recent-thumb" alt="">
-                            <h2><p onclick="fnLaunch('004');" style="cursor: pointer;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Công Phá Toán 3</font></font></p></h2>
+                            <h2><p onclick="fnLaunch('008','CN001');" style="cursor: pointer;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Công Phá Toán 3</font></font></p></h2>
                             <div class="product-sidebar-price">
-                                <ins><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">149.000 VND</font></font></ins> <del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">189.000 VND</font></font></del>
+                                <ins><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">149.000 VND</font></font></ins> <!-- <del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">189.000 VND</font></font></del> -->
                             </div>                             
                         </div>
                         <div class="thubmnail-recent">
                             <img src="images/DacNhanTam.jpg" class="recent-thumb" alt="">
-                            <h2><p onclick="fnLaunch('001');" style="cursor: pointer;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đắc Nhân Tâm</font></font></p></h2>
+                            <h2><p onclick="fnLaunch('001','CN001');" style="cursor: pointer;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đắc Nhân Tâm</font></font></p></h2>
                             <div class="product-sidebar-price">
-                                <ins><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">38.000 VND</font></font></ins> <del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">76.000 VND</font></font></del>
+                                <ins><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">38.000 VND</font></font></ins> <!-- <del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">76.000 VND</font></font></del> -->
                             </div>                             
                         </div>
                         <div class="thubmnail-recent">
                             <img src="images/luyen-sieu-tri-nho.jpg" class="recent-thumb" alt="">
-                            <h2><p onclick="fnLaunch('006');" style="cursor: pointer;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Luyện Siêu Trí Từ Vựng Tiếng Anh</font></font></a></h2>
+                            <h2><p onclick="fnLaunch('010','CN001');" style="cursor: pointer;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Luyện Siêu Trí Từ Vựng Tiếng Anh</font></font></p></h2>
                             <div class="product-sidebar-price">
-                                <ins><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">94.000 VND</font></font></ins> <del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">188.000 VND</font></font></del>
+                                <ins><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">94.000 VND</font></font></ins> <!-- <del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">188.000 VND</font></font></del> -->
                             </div>                             
                         </div>
                     </div>
@@ -201,11 +201,11 @@
                     <div class="single-sidebar">
                         <h2 class="sidebar-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bài đăng gần đây</font></font></h2>
                         <ul>
-                            <li><a href="single-product.html?id=009"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mình Là Cá, Việc Của Mình Là Bơi</font></font></a></li>
-                            <li><a href="single-product.html?id=010"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tony Buổi Sáng - Trên Đường Băng</font></font></a></li>
-                            <li><a href="single-product.html?id=001"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đắc Nhân Tâm</font></font></a></li>
-                            <li><a href="single-product.html?id=006"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Luyện Siêu Trí Nhớ</font></font></a></li>
-                            <li><a href="single-product.html?id=005"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tôi Thấy Hoa Vàng Trên Cỏ Xanh</font></font></a></li>
+                            <li><a href="single-product.php?id=015&cn=CN001"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mình Là Cá, Việc Của Mình Là Bơi</font></font></a></li>
+                            <li><a href="single-product.php?id=016&cn=CN001"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tony Buổi Sáng - Trên Đường Băng</font></font></a></li>
+                            <li><a href="single-product.php?id=001&cn=CN001"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đắc Nhân Tâm</font></font></a></li>
+                            <li><a href="single-product.php?id=010&cn=CN001"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Luyện Siêu Trí Nhớ</font></font></a></li>
+                            <li><a href="single-product.php?id=009&cn=CN001"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tôi Thấy Hoa Vàng Trên Cỏ Non</font></font></a></li>
                         </ul>
                     </div>
                 </div>
@@ -359,17 +359,17 @@
                     <div class="related-products-wrapper">
                         <h2 class="related-products-title">SẢN PHẨM LIÊN QUAN</h2>
                         <div class="related-products-carousel">
-                            <div class="single-product">
+                      <div class="single-product">
                            <div class="product-f-image">
                               <img src="./images/toi_thay_hoa_vang.jpg" alt="">
                               <div class="product-hover">
-                                 <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
-                                 <a href="single-product.html?id=005" class="view-details-link"><i class="fa fa-link"></i> Xem chi tiết</a>
+                                 <a style="cursor: pointer;" onclick="addCart('009','Tôi Thấy Hoa Vàng Trên Cỏ Xanh',true,'CN001','./images/toi_thay_hoa_vang.jpg')" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
+                                 <a href="single-product.php?id=009&cn=CN001" class="view-details-link"><i class="fa fa-link"></i> Xem chi tiết</a>
                               </div>
                            </div>
-                           <h2><p onclick="fnLaunch('005');" style="cursor: pointer;">Tôi Thấy Hoa Vàng Trên Cỏ Xanh</p></h2>
+                           <h2><p onclick="fnLaunch('009','CN001');" style="cursor: pointer;">Tôi Thấy Hoa Vàng Trên Cỏ Xanh</p></h2>
                            <div class="product-carousel-price">
-                              <ins>60.500 <u>đ</u></ins> <del>82.000 <u>đ</u></del>
+                              <ins>60.500 <u>đ</u></ins> <!-- <del>82.000 <u>đ</u></del> -->
                            </div>
                            <div class="product-wid-rating">
                               <i class="fa fa-star"></i>
@@ -383,13 +383,13 @@
                            <div class="product-f-image">
                               <img src="./images/luyen-sieu-tri-nho.jpg" alt="">
                               <div class="product-hover">
-                                 <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
-                                 <a href="single-product.html?id=006" class="view-details-link"><i class="fa fa-link"></i> Xem chi tiết</a>
+                                 <a style="cursor: pointer;" onclick="addCart('010','Luyện Siêu Trí Nhớ Từ Vựng Tiếng Anh',true,'CN001','./images/luyen-sieu-tri-nho.jpg')" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
+                                 <a href="single-product.php?id=010&cn=CN001" class="view-details-link"><i class="fa fa-link"></i> Xem chi tiết</a>
                               </div>
                            </div>
-                           <h2><p onclick="fnLaunch('006');" style="cursor: pointer;">Luyện Siêu Trí Nhớ Trí Nhớ Từ Vựng Tiếng Anh</a></h2>
+                           <h2><p onclick="fnLaunch('010','CN001');" style="cursor: pointer;">Luyện Siêu Trí Nhớ Từ Vựng Tiếng Anh</a></h2>
                            <div class="product-carousel-price">
-                              <ins>94.000 <u>đ</u></ins> <del>188.000 <u>đ</u></del>
+                              <ins>94.000 <u>đ</u></ins> <!-- del>188.000 <u>đ</u></del> -->
                            </div>
                            <div class="product-wid-rating">
                               <i class="fa fa-star"></i>
@@ -403,13 +403,13 @@
                            <div class="product-f-image">
                               <img src="./images/CongPhaToan2.jpg" alt="">
                               <div class="product-hover">
-                                 <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
-                                 <a href="single-product.html?id=007" class="view-details-link"><i class="fa fa-link"></i> Xem chi tiết</a>
+                                 <a style="cursor: pointer;" onclick="addCart('003','Công Phá Toán 2',true,'CN001','./images/CongPhaToan2.jpg')" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
+                                 <a href="single-product.php?id=003&cn=CN001" class="view-details-link"><i class="fa fa-link"></i> Xem chi tiết</a>
                               </div>
                            </div>
-                           <h2><p onclick="fnLaunch('007');" style="cursor: pointer;">Công Phá Toán 2</p></h2>
+                           <h2><p onclick="fnLaunch('003','CN001');" style="cursor: pointer;">Công Phá Toán 2</p></h2>
                            <div class="product-carousel-price">
-                              <ins>139.000 <u>đ</u></ins> <del>179.000 <u>đ</u></del>
+                              <ins>139.000 <u>đ</u></ins> <!-- <del>179.000 <u>đ</u></del> -->
                            </div>
                            <div class="product-wid-rating">
                               <i class="fa fa-star"></i>
@@ -423,13 +423,13 @@
                            <div class="product-f-image">
                               <img src="./images/doi-ngan-dung-ngu-dai.jpg" alt="">
                               <div class="product-hover">
-                                 <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
-                                 <a href="single-product.html?id=008" class="view-details-link"><i class="fa fa-link"></i> Xem chi tiết</a>
+                                <a style="cursor: pointer;" onclick="addCart('014','Đời ngắn đừng ngủ dài',true,'CN001','./images/doi-ngan-dung-ngu-dai.jpg')" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
+                                 <a href="single-product.php?id=014&cn=CN001" class="view-details-link"><i class="fa fa-link"></i> Xem chi tiết</a>
                               </div>
                            </div>
-                           <h2><p onclick="fnLaunch('008');" style="cursor: pointer;">Đời Ngắn Đừng Ngủ Dài</p></h2>
+                           <h2><p onclick="fnLaunch('014','CN001');" style="cursor: pointer;">Đời Ngắn Đừng Ngủ Dài</p></h2>
                            <div class="product-carousel-price">
-                              <ins>47.400 <u>đ</u></ins> <del>60.000 <u>đ</u></del>
+                              <ins>47.400 <u>đ</u></ins> <!-- <del>60.000 <u>đ</u></del> -->
                            </div>
                            <div class="product-wid-rating">
                               <i class="fa fa-star"></i>
@@ -443,13 +443,13 @@
                            <div class="product-f-image">
                               <img src="./images/minh-la-ca-viec-cua-minh-la-boi.jpg" alt="">
                               <div class="product-hover">
-                                 <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
-                                 <a href="single-product.html?id=009" class="view-details-link"><i class="fa fa-link"></i> Xem chi tiết</a>
+                                 <a style="cursor: pointer;" onclick="addCart('015','Mình Là Cá, Việc Của Mình Là Bơi ',true,'CN001','./images/minh-la-ca-viec-cua-minh-la-boi.jpg')" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
+                                 <a href="single-product.php?id=015&cn=CN001" class="view-details-link"><i class="fa fa-link"></i> Xem chi tiết</a>
                               </div>
                            </div>
-                           <h2><p onclick="fnLaunch('009');" style="cursor: pointer;">Mình Là Cá, Việc Của Mình Là Bơi</p></h2>
+                           <h2><p onclick="fnLaunch('015','CN001');" style="cursor: pointer;">Mình Là Cá, Việc Của Mình Là Bơi</p></h2>
                            <div class="product-carousel-price">
-                              <ins>53.400 <u>đ</u></ins> <del>89.000 <u>đ</u></del>
+                              <ins>53.400 <u>đ</u></ins> <!-- <del>89.000 <u>đ</u></del> -->
                            </div>
                            <div class="product-wid-rating">
                               <i class="fa fa-star"></i>
@@ -458,27 +458,7 @@
                               <i class="fa fa-star"></i>
                               <i class="fa fa-star"></i>
                            </div>
-                        </div>
-                         <div class="single-product">
-                           <div class="product-f-image">
-                              <img src="./images/tony-buoi-sang.jpg" alt="">
-                              <div class="product-hover">
-                                 <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
-                                 <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> Xem chi tiết</a>
-                              </div>
-                           </div>
-                           <h2><a href="single-product.html">Tony Buổi Sáng - Trên Đường Băng</a></h2>
-                           <div class="product-carousel-price">
-                              <ins>58.900 <u>đ</u></ins> <del>80.000 <u>đ</u></del>
-                           </div>
-                           <div class="product-wid-rating">
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                           </div>
-                        </div>                                 
+                        </div>                      
                         </div>
                     </div>
                 </div>                    
@@ -595,9 +575,9 @@
 </body>
 </html>
 <script type="text/javascript">
-   function fnLaunch(ma)
+   function fnLaunch(ma,cn)
    { 
-      var urls="single-product.html?id="+ma;
+      var urls="single-product.php?id="+ma+"&cn="+cn;
       var win=window.open(urls, "_self");
       window.focus();
 

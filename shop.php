@@ -261,8 +261,8 @@
    </body>
 </html>
 <script>
-   var cn;
-   var id="<?php echo $_SESSION['ID']; ?>";
+   // var cn;
+   // var id="<?php //echo $_SESSION['ID']; ?>";
      $(document).ready(function(){
       //load combobox chi nhánh 
        $.ajax({

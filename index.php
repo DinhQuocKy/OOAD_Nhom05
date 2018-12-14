@@ -210,24 +210,25 @@
                             <?php
                                 include_once "dbconnect.php";
                                 $result=new Connection();
-                                $db=$result->query("SELECT ID_Sach, TenSach,Gia,hinhAnh from sach ORDER by ID_Sach DESC limit 0, 6");
+                                $db=$result->query("select s.ID_Sach,s.TenSach,s.Gia,s.hinhAnh,sl.ID_ChiNhanh from sl_sach sl join sach s on sl.ID_Sach=s.ID_Sach where sl.ID_ChiNhanh='CN001' and sl.SL_Ton>0 ORDER by ID_Sach DESC limit 0, 6");
                                 if ($db->columnCount()>0){
                                     foreach ($db as $arr){
                                         $id=$arr[0];
                                         $name=$arr[1];
                                         $price=$arr[2];
                                         $image=$arr[3];
+                                        $cn=$arr[4];
                                         //$price_formated=number_format($price,0,'.','.');
                                         echo "<div class='single-product'>
                                                 <div class='product-f-image'>
                                                     <img src='$image' alt=''>
                                                          <div class='product-hover'>
-                                                             <a href='index.php' class='add-to-cart-link' onclick=''><i class='fa fa-shopping-cart'></i> Thêm vào giỏ</a>
-                                                             <a href='single-product.php?id=$id' class='view-details-link'><i class='fa fa-link'></i> Xem chi tiết</a>
+                                                             <a style='cursor:pointer' class='add-to-cart-link' onclick='addCart(\"$id\",\"$name\",true,\"$cn\",\"$image\")'><i class='fa fa-shopping-cart'></i> Thêm vào giỏ</a>
+                                                             <a href='single-product.php?id=$id&cn=CN001' class='view-details-link'><i class='fa fa-link'></i> Xem chi tiết</a>
                                                         </div>
                                                 </div>
                                 
-                                                <h2><p onclick='fnLaunch(\"$id\");' style='cursor: pointer;'>$name</p></h2>
+                                                <h2><p onclick='fnLaunch(\"$id\",\"$cn\");' style='cursor: pointer;'>$name</p></h2>
                                 
                                                 <div class='product-carousel-price'>
                                                     <ins>$price <u>đ</u></ins>
@@ -276,8 +277,8 @@
                         <h2 class="product-wid-title">Bán chạy nhất</h2>
                         <a href="" class="wid-view-more">Xem tất cả</a>
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="./images/chuc-mot-ngay-tot-lanh.jpg" alt="" class="product-thumb"></a>
-                            <h2><p onclick="fnLaunch('013');" style="cursor: pointer;">Chúc Một Ngày Tốt Lành</p></h2>
+                            <a href="single-product.php?id=023&cn=CN001"><img src="./images/chuc-mot-ngay-tot-lanh.jpg" alt="" class="product-thumb"></a>
+                            <h2><p onclick="fnLaunch('023','CN001');" style="cursor: pointer;">Chúc Một Ngày Tốt Lành</p></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -286,12 +287,12 @@
                                 <i class="fa fa-star"></i>
                             </div>
                             <div class="product-wid-price">
-                                <ins>74.000 <u>đ</u></ins> <del>99.000 <u>đ</u></del>
+                                <ins>74.000 <u>đ</u></ins> <!-- <del>99.000 <u>đ</u></del> -->
                             </div>                            
                         </div>
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="./images/DacNhanTam.jpg" alt="" class="product-thumb"></a>
-                            <h2><p onclick="fnLaunch('001');" style="cursor: pointer;">Đắc Nhân Tâm (Khổ Lớn)</p></h2>
+                            <a href="single-product.php?id=001&cn=CN001"><img src="./images/DacNhanTam.jpg" alt="" class="product-thumb"></a>
+                            <h2><p onclick="fnLaunch('001','CN001');" style="cursor: pointer;">Đắc Nhân Tâm (Khổ Lớn)</p></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -300,12 +301,12 @@
                                 <i class="fa fa-star"></i>
                             </div>
                             <div class="product-wid-price">
-                                <ins>38.000 <u>đ</u></ins> <del>76.000 <u>đ</u></del>
+                                <ins>38.000 <u>đ</u></ins> <!-- <del>76.000 <u>đ</u></del> -->
                             </div>                            
                         </div>
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="./images/5cm.jpg" alt="" class="product-thumb"></a>
-                            <h2><p onclick="fnLaunch('003');" style="cursor: pointer;">5 Centimet Trên Giây</p></h2>
+                            <a href="single-product.php?id=007&cn=CN001"><img src="./images/5cm.jpg" alt="" class="product-thumb"></a>
+                            <h2><p onclick="fnLaunch('007','CN001');" style="cursor: pointer;">5 Centimet Trên Giây</p></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -314,7 +315,7 @@
                                 <i class="fa fa-star"></i>
                             </div>
                             <div class="product-wid-price">
-                                <ins>35.000 <u>đ</u></ins> <del>50.000 <u>đ</u></del>
+                                <ins>35.000 <u>đ</u></ins> <!-- <del>50.000 <u>đ</u></del> -->
                             </div>                            
                         </div>
                     </div>
@@ -324,8 +325,8 @@
                         <h2 class="product-wid-title">Xem gần đây</h2>
                         <a href="#" class="wid-view-more">Xem tất cả</a>
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="./images/kheo-an-noi-se-co-duoc-thien-ha.jpg" alt="" class="product-thumb"></a>
-                            <h2><p onclick="fnLaunch('014');" style="cursor: pointer;">Khéo Ăn Nói Sẽ Có Được Thiên Hạ</p></h2>
+                            <a href="single-product.php?id=025&cn=CN001"><img src="./images/kheo-an-noi-se-co-duoc-thien-ha.jpg" alt="" class="product-thumb"></a>
+                            <h2><p onclick="fnLaunch('025','CN001');" style="cursor: pointer;">Khéo Ăn Nói Sẽ Có Được Thiên Hạ</p></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -334,12 +335,12 @@
                                 <i class="fa fa-star"></i>
                             </div>
                             <div class="product-wid-price">
-                                <ins>44.000 <u>đ</u></ins> <del>110.000 <u>đ</u></del>
+                                <ins>44.000 <u>đ</u></ins> <!-- <del>110.000 <u>đ</u></del> -->
                             </div>                            
                         </div>
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="./images/toi-tai-gioi.jpg" alt="" class="product-thumb"></a>
-                            <h2><p onclick="fnLaunch('002');" style="cursor: pointer;">Tôi Tài Giỏi - Bạn Cũng Thế</p></h2>
+                            <a href="single-product.php?id=017&cn=CN001"><img src="./images/mat-biec.jpg" alt="" class="product-thumb"></a>
+                            <h2><p onclick="fnLaunch('017','CN001');" style="cursor: pointer;">Mắt biếc</p></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -348,12 +349,12 @@
                                 <i class="fa fa-star"></i>
                             </div>
                             <div class="product-wid-price">
-                                <ins>82.500 <u>đ</u></ins> <del>110.000 <u>đ</u></del>
+                                <ins>82.500 <u>đ</u></ins> <!-- <del>110.000 <u>đ</u></del> -->
                             </div>                            
                         </div>
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="./images/tuoi-tre-khong-tri-hoan.jpg" alt="" class="product-thumb"></a>
-                            <h2><p onclick="fnLaunch('015');" style="cursor: pointer;">Tuổi Trẻ Không Trì Hoãn</p></h2>
+                            <a href="single-product.php?id=024&cn=CN001"><img src="./images/tuoi-tre-khong-tri-hoan.jpg" alt="" class="product-thumb"></a>
+                            <h2><p onclick="fnLaunch('024','CN001');" style="cursor: pointer;">Tuổi Trẻ Không Trì Hoãn</p></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -362,7 +363,7 @@
                                 <i class="fa fa-star"></i>
                             </div>
                             <div class="product-wid-price">
-                                <ins>52.800 <u>đ</u></ins> <del>88.000 <u>đ</u></del>
+                                <ins>52.800 <u>đ</u></ins> <!-- <del>88.000 <u>đ</u></del> -->
                             </div>                            
                         </div>
                     </div>
@@ -372,8 +373,8 @@
                         <h2 class="product-wid-title">Sản phẩm HOT</h2>
                         <a href="#" class="wid-view-more">Xem tất cả</a>
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="./images/that-tich-khong-mua.jpg" alt="" class="product-thumb"></a>
-                            <h2><p onclick="fnLaunch('016');" style="cursor: pointer;">Thất Tịch Không Mưa</p></h2>
+                            <a href="single-product.php?id=026&cn=CN001"><img src="./images/that-tich-khong-mua.jpg" alt="" class="product-thumb"></a>
+                            <h2><p onclick="fnLaunch('026','CN001');" style="cursor: pointer;">Thất Tịch Không Mưa</p></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -382,12 +383,12 @@
                                 <i class="fa fa-star"></i>
                             </div>
                             <div class="product-wid-price">
-                                <ins>59.250 <u>đ</u></ins> <del>79.000 <u>đ</u></del>
+                                <ins>59.250 <u>đ</u></ins> <!-- <del>79.000 <u>đ</u></del> -->
                             </div>                            
                         </div>
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="./images/luyen-sieu-tri-nho.jpg" alt="" class="product-thumb"></a>
-                            <h2><p onclick="fnLaunch('006');" style="cursor: pointer;">Luyện Siêu Trí Nhớ Từ Vựng Tiếng Anh</p></h2>
+                            <a href="single-product.php?id=010&cn=CN001"><img src="./images/luyen-sieu-tri-nho.jpg" alt="" class="product-thumb"></a>
+                            <h2><p onclick="fnLaunch('010','CN001');" style="cursor: pointer;">Luyện Siêu Trí Nhớ Từ Vựng Tiếng Anh</p></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -396,12 +397,12 @@
                                 <i class="fa fa-star"></i>
                             </div>
                             <div class="product-wid-price">
-                                <ins>94.000 <u>đ</u></ins> <del>188.000 <u>đ</u></del>
+                                <ins>94.000 <u>đ</u></ins> <!-- <del>188.000 <u>đ</u></del> -->
                             </div>                            
                         </div>
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="./images/CongPhaToan2.jpg" alt="" class="product-thumb"></a>
-                            <h2><p onclick="fnLaunch('007');" style="cursor: pointer;">Công Phá Toán 2</p></h2>
+                            <a href="single-product.php?id=003&cn=CN001"><img src="./images/CongPhaToan2.jpg" alt="" class="product-thumb"></a>
+                            <h2><p onclick="fnLaunch('003','CN001');" style="cursor: pointer;">Công Phá Toán 2</p></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -410,7 +411,7 @@
                                 <i class="fa fa-star"></i>
                             </div>
                             <div class="product-wid-price">
-                                <ins>139.000 <u>đ</u></ins> <del>179.000 <u>đ</u></del>
+                                <ins>139.000 <u>đ</u></ins> <!-- <del>179.000 <u>đ</u></del> -->
                             </div>                            
                         </div>
                     </div>
@@ -517,9 +518,9 @@
     <script type="text/javascript" src="js/bxslider.min.js"></script>
 	<script type="text/javascript" src="js/script.slider.js"></script>
     <script type="text/javascript">
-         function fnLaunch(ma)
+         function fnLaunch(ma,cn)
          { 
-            var urls="single-product.html?id="+ma;
+            var urls="single-product.php?id="+ma+"&cn="+cn;
             var win=window.open(urls, "_self");
             window.focus();
 

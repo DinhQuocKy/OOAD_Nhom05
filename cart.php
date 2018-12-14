@@ -146,42 +146,42 @@
                         <h2 class="sidebar-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Các sản phẩm</font></font></h2>
                         <div class="thubmnail-recent">
                             <img src="images/CongPhaToan2.jpg" class="recent-thumb" alt="">
-                            <h2><p onclick="fnLaunch('007');" style="cursor: pointer;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Công Phá Toán 2</font></font></p></h2>
+                            <h2><p onclick="fnLaunch('003','CN001');" style="cursor: pointer;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Công Phá Toán 2</font></font></p></h2>
                             <div class="product-sidebar-price">
-                                <ins><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">139.000 VND</font></font></ins> <del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">179.000 VND</font></font></del>
+                                <ins><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">139.000 VND</font></font></ins> <!-- <del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">179.000 VND</font></font></del> -->
                             </div>                             
                         </div>
                         <div class="thubmnail-recent">
                             <img src="images/CongPhaToan3.jpg" class="recent-thumb" alt="">
-                            <h2><p onclick="fnLaunch('004');" style="cursor: pointer;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Công Phá Toán 3</font></font></p></h2>
+                            <h2><p onclick="fnLaunch('008','CN001');" style="cursor: pointer;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Công Phá Toán 3</font></font></p></h2>
                             <div class="product-sidebar-price">
-                                <ins><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">149.000 VND</font></font></ins> <del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">189.000 VND</font></font></del>
+                                <ins><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">149.000 VND</font></font></ins> <!-- <del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">189.000 VND</font></font></del> -->
                             </div>                             
                         </div>
                         <div class="thubmnail-recent">
                             <img src="images/DacNhanTam.jpg" class="recent-thumb" alt="">
-                            <h2><p onclick="fnLaunch('001');" style="cursor: pointer;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đắc Nhân Tâm</font></font></p></h2>
+                            <h2><p onclick="fnLaunch('001','CN001');" style="cursor: pointer;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đắc Nhân Tâm</font></font></p></h2>
                             <div class="product-sidebar-price">
-                                <ins><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">38.000 VND</font></font></ins> <del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">76.000 VND</font></font></del>
+                                <ins><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">38.000 VND</font></font></ins> <!-- <del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">76.000 VND</font></font></del> -->
                             </div>                             
                         </div>
                         <div class="thubmnail-recent">
                             <img src="images/luyen-sieu-tri-nho.jpg" class="recent-thumb" alt="">
-                            <h2><p onclick="fnLaunch('006');" style="cursor: pointer;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Luyện Siêu Trí Từ Vựng Tiếng Anh</font></font></p></h2>
+                            <h2><p onclick="fnLaunch('010','CN001');" style="cursor: pointer;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Luyện Siêu Trí Từ Vựng Tiếng Anh</font></font></p></h2>
                             <div class="product-sidebar-price">
-                                <ins><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">94.000 VND</font></font></ins> <del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">188.000 VND</font></font></del>
+                                <ins><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">94.000 VND</font></font></ins> <!-- <del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">188.000 VND</font></font></del> -->
                             </div>                             
                         </div>
                     </div>
                     
                     <div class="single-sidebar">
                         <h2 class="sidebar-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bài đăng gần đây</font></font></h2>
-                        <ul>
-                            <li><a href="single-product.html?id=009"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mình Là Cá, Việc Của Mình Là Bơi</font></font></a></li>
-                            <li><a href="single-product.html?id=010"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tony Buổi Sáng - Trên Đường Băng</font></font></a></li>
-                            <li><a href="single-product.html?id=001"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đắc Nhân Tâm</font></font></a></li>
-                            <li><a href="single-product.html?id=006"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Luyện Siêu Trí Nhớ</font></font></a></li>
-                            <li><a href="single-product.html?id=005"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tôi Thấy Hoa Vàng Trên Cỏ Non</font></font></a></li>
+                       <ul>
+                            <li><a href="single-product.php?id=015&cn=CN001"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mình Là Cá, Việc Của Mình Là Bơi</font></font></a></li>
+                            <li><a href="single-product.php?id=016&cn=CN001"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tony Buổi Sáng - Trên Đường Băng</font></font></a></li>
+                            <li><a href="single-product.php?id=001&cn=CN001"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đắc Nhân Tâm</font></font></a></li>
+                            <li><a href="single-product.php?id=010&cn=CN001"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Luyện Siêu Trí Nhớ</font></font></a></li>
+                            <li><a href="single-product.php?id=009&cn=CN001"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tôi Thấy Hoa Vàng Trên Cỏ Non</font></font></a></li>
                         </ul>
                     </div>
                 </div>
@@ -208,53 +208,43 @@
                             <div class="cart-collaterals">
 
 
-                            <div class="cross-sells">
+                            <div class="cross-sells" style="width: 90%;">
                                 <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bạn có thể quan tâm đến ...</font></font></h2>
                                 <ul class="products">
                                     <li class="product">
-                                        <a href="single-product.html?id=003">
+                                        <a href="single-product.php?id=007&cn=CN001">
                                             <img width="325" height="325" alt="T_4_front" class="attachment-shop_catalog wp-post-image" src="images/5cm.jpg">
                                             <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">5 Centimet Trên Giây</font></font></h3>
                                             <span class="price"><span class="amount"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">35.000 VND</font></font></span></span>
                                         </a>
 
-                                        <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="22" rel="nofollow" href="single-product.html?id=003"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Chọn tùy chọn</font></font></a>
+                                       <!--  <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="22" rel="nofollow" href="single-product.html?id=003"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Chọn tùy chọn</font></font></a> -->
                                     </li>
 
                                     <li class="product">
-                                        <a href="single-product.html?id=011">
+                                        <a href="single-product.php?id=017&cn=CN001">
                                             <img width="325" height="325" alt="T_4_front" class="attachment-shop_catalog wp-post-image" src="images/Mat-biec.jpg">
                                             <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mắt Biếc</font></font></h3>
                                             <span class="price"><span class="amount"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">45.820 VND</font></font></span></span>
                                         </a>
 
-                                        <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="22" rel="nofollow" href="single-product.html?id=011"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Chọn tùy chọn</font></font></a>
+                                        <!-- <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="22" rel="nofollow" href="single-product.html?id=011"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Chọn tùy chọn</font></font></a> -->
+                                    </li>
+                                    <li class="product">
+                                        <a href="single-product.php?id=022&cn=CN002">
+                                            <img width="325" height="325" alt="T_4_front" class="attachment-shop_catalog wp-post-image" src="images/tho-bay-mau.jpg">
+                                            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Thỏ Bảy Màu</font></font></h3>
+                                            <span class="price"><span class="amount"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">55.300 VND</font></font></span></span>
+                                        </a>
+
+                                        <!-- <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="22" rel="nofollow" href="single-product.html?id=011"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Chọn tùy chọn</font></font></a> -->
                                     </li>
                                 </ul>
                             </div>
 
 
-                            <div class="cart_totals ">
-                                <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tổng số giỏ hàng</font></font></h2>
-
-                                <table cellspacing="0">
-                                    <tbody>
-                                        <tr class="cart-subtotal">
-                                            <th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tạm tính</font></font></th>
-                                            <td><span class="amount"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;" id="tamTinh">38.000 VND</font></font></span></td>
-                                        </tr>
-
-                                        <tr class="shipping">
-                                            <th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Vận chuyển và xử lý</font></font></th>
-                                            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Miễn phí vận chuyển</font></font></td>
-                                        </tr>
-
-                                        <tr class="order-total">
-                                            <th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;" >Tổng hóa đơn</font></font></th>
-                                            <td><strong><span class="amount"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;" id="tongHoaDon">38.000 VND</font></font></span></strong> </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                           
+                                
                             </div>
                             </div>
                         </div>                        
@@ -366,8 +356,8 @@
         var chucVu="";
         var arr_json=[];
         var jsonArray="";
-        var id_nguoidung= "<?php echo $_SESSION['ID']; ?>";
-       function fnLaunch(ma,cn)
+        var id_nguoidung= "<?php echo (isset($_SESSION['ID'])?$_SESSION['ID']:""); ?>";
+        function fnLaunch(ma,cn)
        { 
           var urls="single-product.php?id="+ma+"&cn="+cn;
           window.open(urls, "_self");
