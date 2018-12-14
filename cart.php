@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <?php session_start(); ?>
 <!--
 	ustora by freshdesignweb.com
@@ -536,7 +536,7 @@
 
         $('#formLapPhieu').submit(function(e){
             //bắt đầu từ đây
-            alert(id_nguoidung);
+            //alert(id_nguoidung);
             if (id_nguoidung==""){
                 
                 alert("Bạn chưa đăng nhập, vui lòng đăng nhập để thực hiện chức năng này!!!");
